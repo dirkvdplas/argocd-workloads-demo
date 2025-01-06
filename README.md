@@ -44,7 +44,7 @@ Deploy "dev" workloads
 
 ```
 argocd app create bootstrap-dev \
-   --repo https://github.com/myspotontheweb/argocd-workloads-demo.git \
+   --repo https://github.com/dirkvdplas/argocd-workloads-demo.git \
    --path argocd/dev \
    --dest-namespace argocd \
    --dest-server https://kubernetes.default.svc \
@@ -55,7 +55,7 @@ Deploy "test" workloads
 
 ```
 argocd app create bootstrap-test \
-   --repo https://github.com/myspotontheweb/argocd-workloads-demo.git \
+   --repo https://github.com/dirkvdplas/argocd-workloads-demo.git \
    --path argocd/test \
    --dest-namespace argocd \
    --dest-server https://kubernetes.default.svc \
@@ -66,7 +66,7 @@ Deploy "prod" workloads
 
 ```
 argocd app create bootstrap-prod \
-   --repo https://github.com/myspotontheweb/argocd-workloads-demo.git \
+   --repo https://github.com/dirkvdplas/argocd-workloads-demo.git \
    --path argocd/prod \
    --dest-namespace argocd \
    --dest-server https://kubernetes.default.svc \
