@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/myspotontheweb/argocd-workloads-demo.git
+      repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git
       revision: HEAD
       directories:
       - path: apps/*/test
@@ -16,7 +16,7 @@ spec:
     spec:
       project: "test"
       source:
-        repoURL: https://github.com/myspotontheweb/argocd-workloads-demo.git
+        repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
