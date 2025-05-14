@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: uedns-customers
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: git@github.com:dirkvdplas/argocd-workloads-demo.git 
+      revision: HEAD 
+      directories:
+      - path: uedns/uedns-customers/*
+  template:
+    metadata:
+      name: '{{path[1]}}'
+    spec:
+      project: "gitops-gsi"
+      source:
+        repoURL: git@github.com:dirkvdplas/argocd-workloads-demo.git 
+        targetRevision: HEAD 
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path[1]}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
