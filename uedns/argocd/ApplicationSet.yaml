@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git
-      revision: main
+      revision: HEAD 
       directories:
       - path: uedns/uednscustomers/*
   template:
@@ -17,7 +17,7 @@ spec:
       project: "gitops-gsi"
       source:
         repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git
-        targetRevision: main
+        targetRevision: HEAD 
         path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
