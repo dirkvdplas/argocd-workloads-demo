@@ -1,48 +1,5 @@
-global:
+app:
+  replicaCount: 5
   image:
-    registry: acn-vdns-helm-local.artifacts.kpn.org
-  # Reference existing Image Pull Secrets we have created for artifactory
-  imagePullSecretsList:
-    - "artifactory"
-
-
-dnsdists:
-  auth-dnsdist:
-    # Dnsdist is stretched. topologySpreadConstraints will ensure dnsdist nodes are spread over both Asd and Rtd
-    # Pods with the label app=frontend will be distributed across both zones (topology.kubernetes.io/zone)
-    # and nodes within those zones (kubernetes.io/hostname).
-    #affinity:
-    #  nodeAffinity:
-    #    requiredDuringSchedulingIgnoredDuringExecution:
-    #      nodeSelectorTerms:
-    #      - matchExpressions:
-    #        - key: topology.kubernetes.io/zone
-    #          operator: In
-    #          values:
-    #          - "dc_rtd"
-    replicas: 2
-    pools:
-      default:
-        serverGroups:
-          - group: primary-asd
-          - group: primary-rt
-        # packetcache disabled for testing purposes
-        #packetcache:
-        #  maxEntries: 200000
-    readiness:
-      do53QDomain: test.example.com
-      do53QType: A
-    luaScript: |-
-      addAction( "test.ocp.local", SpoofAction("1.1.1.1"))
-    additionalServices:
-    - name: test1
-      type: LoadBalancer
-      externalTrafficPolicy: Local
-      #lbMixedProtocol: true
-      servicePerPort: true
-    - name: test2
-      type: LoadBalancer
-      externalTrafficPolicy: Local
-      #lbMixedProtocol: true
-      servicePerPort: true
-
+    repository: ghcr.io/myspotontheweb/argocd-workloads-demo/pre-prod/demo1
+    tag: sha-433ed8b
