@@ -1,0 +1,5 @@
+app:
+  replicaCount: 10
+  image:
+    repository: ghcr.io/myspotontheweb/argocd-workloads-demo/pre-prod/demo1
+    tag: sha-433ed8b
