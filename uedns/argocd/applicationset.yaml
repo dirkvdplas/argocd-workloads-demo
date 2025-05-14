@@ -6,8 +6,8 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: git@github.com:dirkvdplas/argocd-workloads-demo.git 
-      revision: HEAD 
+      repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git 
+      revision: main 
       directories:
       - path: uedns/uedns-customers/*
   template:
@@ -16,8 +16,8 @@ spec:
     spec:
       project: "gitops-gsi"
       source:
-        repoURL: git@github.com:dirkvdplas/argocd-workloads-demo.git 
-        targetRevision: HEAD 
+        repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git 
+        targetRevision: main 
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
