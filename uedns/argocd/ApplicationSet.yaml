@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git
       revision: main
       directories:
-      - path: uedns/uedns_customers/*
+      - path: uedns/uednscustomers/*
   template:
     metadata:
       name: '{{.path.basename}}'
