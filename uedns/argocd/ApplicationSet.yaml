@@ -12,16 +12,16 @@ spec:
       - path: uedns/uednscustomers/*
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{path.basename}}'
     spec:
       project: "gitops-gsi"
       source:
         repoURL: https://github.com/dirkvdplas/argocd-workloads-demo.git
         targetRevision: HEAD 
-        path: '{{.path.path}}'
+        path: '{{path.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{.path.basename}}'
+        namespace: '{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
