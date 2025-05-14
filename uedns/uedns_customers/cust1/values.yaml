@@ -1,6 +1,4 @@
 global:
-  openshift:
-    enabled: true
   image:
     registry: acn-vdns-helm-local.artifacts.kpn.org
   # Reference existing Image Pull Secrets we have created for artifactory
